@@ -1,19 +1,21 @@
 
 class Person:
-    def __init__(self, person_id, name):
+    def __init__(self, person_id, name,age):
         self.person_id = person_id
         self.name = name
+        self.age = age
 
     def __str__(self):
         return f"{self.name} (ID: {self.person_id})"
 
 
 class Patient(Person):
-    def __init__(self, person_id, name):
-        super().__init__(person_id, name)
+    def __init__(self, person_id, name,age):
+        super().__init__(person_id, name,age)
         self.assigned_department = None
         self.status = "Waiting"
         self.medical_notes = ""
+        self.queue_number = ""
 
     def update_status(self, new_status):
         self.status = new_status
@@ -22,8 +24,8 @@ class Patient(Person):
 
 class Doctor(Person):
 
-    def __init__(self, person_id, name, specialty):
-        super().__init__(person_id, name)
+    def __init__(self, person_id, name, specialty,age):
+        super().__init__(person_id, name,age)
         self.specialty = specialty
 
     def diagnose(self, patient, decision):
